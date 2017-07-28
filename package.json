@@ -9,13 +9,16 @@
   "author": "daniiltserin <daniilborowkow@ya.ru>",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "browser-sync": "^2.18.13",
+    "fontawesome": "^4.7.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^3.3.2",
     "gulp-minify-css": "^1.2.4",
     "gulp-pug": "^3.3.0",
     "gulp-watch": "^4.3.11",
+    "jquery": "^3.2.1",
     "pug": "^2.0.0-rc.2"
   }
 }

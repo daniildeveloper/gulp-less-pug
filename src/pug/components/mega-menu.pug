@@ -1,0 +1,124 @@
+.container
+  nav.navbar.navbar-default
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.js-navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='#') БелоеМегаМеню
+    .collapse.navbar-collapse.js-navbar-collapse
+      ul.nav.navbar-nav
+        li.dropdown.mega-dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Выбор мебели 
+            span.glyphicon.glyphicon-chevron-down.pull-right
+          ul.dropdown-menu.mega-dropdown-menu.row
+            li.col-sm-3
+              ul
+                li.dropdown-header Новые поступления
+                #myCarousel.carousel.slide(data-ride='carousel')
+                  .carousel-inner
+                    .item.active
+                      a(href='#')
+                        img.img-responsive(src='http://bootstraptema.ru/snippets/menu/2017/wmm/1.jpg', alt='Кухня')
+                      h4
+                        small Оригинальный набор кухни
+                      button.btn.btn-primary(type='button') 3999 €
+                      button.btn.btn-default(href='#', type='button')
+                        span.glyphicon.glyphicon-heart
+                        |  В Избранное
+                    // End Item
+                    .item
+                      a(href='#')
+                        img.img-responsive(src='http://bootstraptema.ru/snippets/menu/2017/wmm/2.jpg', alt='Спальня')
+                      h4
+                        small Оригинальный набор спальни
+                      button.btn.btn-primary(type='button') 2444 €
+                      button.btn.btn-default(href='#', type='button')
+                        span.glyphicon.glyphicon-heart
+                        |  В Избранное
+                    // End Item
+                    .item
+                      a(href='#')
+                        img.img-responsive(src='http://bootstraptema.ru/snippets/menu/2017/wmm/3.jpg', alt='Кровать')
+                      h4
+                        small Оригинальная кровать
+                      button.btn.btn-primary(type='button') 999 €
+                      button.btn.btn-default(href='#', type='button')
+                        span.glyphicon.glyphicon-heart
+                        |  В Избранное
+                    // End Item
+                  // End Carousel Inner
+                // /.carousel
+                li.divider
+                li
+                  a(href='#')
+                    | Вся коллекция 
+                    span.glyphicon.glyphicon-chevron-right.pull-right
+            li.col-sm-3
+              ul
+                li.dropdown-header Спальни
+                li
+                  a(href='#') Новые
+                li
+                  a(href='#') Популярные
+                li
+                  a(href='#') Эксклюзивные
+                li
+                  a(href='#') Уценённые
+                li.divider
+                li.dropdown-header Кухни
+                li
+                  a(href='#') Новые
+                li
+                  a(href='#') Популярные
+                li
+                  a(href='#') Эксклюзивные
+                li
+                  a(href='#') Уценённые
+            li.col-sm-3
+              ul
+                li.dropdown-header Прихожие
+                li
+                  a(href='#') Новые
+                li
+                  a(href='#') Популярные
+                li
+                  a(href='#') Эксклюзивные
+                li
+                  a(href='#') Уценённые
+                li.divider
+                li.dropdown-header Детские
+                li
+                  a(href='#') Новые
+                li
+                  a(href='#') Популярные
+                li
+                  a(href='#') Эксклюзивные
+                li
+                  a(href='#') Уценённые
+            li.col-sm-3
+              ul
+                li.dropdown-header Доставка
+                li
+                  a(href='#') По стране
+                li
+                  a(href='#') По области
+                li
+                  a(href='#') По городу
+                li
+                  a(href='#') По району
+                li.divider
+                li.dropdown-header Получать новости
+                form.form(role='form')
+                  .form-group
+                    label.sr-only(for='email') E-mail адрес
+                    input#email.form-control(type='email', placeholder='Ваш E-mail')
+                  button.btn.btn-primary.btn-block(type='submit') Подписаться
+        // /.nav-collapse
+    // /.container
+    script.
+        jQuery(document).on('click', '.mega-dropdown', function(e) {
+        e.stopPropagation()
+        });
