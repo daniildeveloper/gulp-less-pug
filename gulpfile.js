@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 /**
  * run gulp watch dev server
  */
-gulp.task('default', function () {
+gulp.task('default', ['framework', 'pug'], function () {
     sync.init({
         server: {
             baseDir: './dist'
@@ -32,4 +32,23 @@ gulp.task('less', function () {
 
 });
 
-gulp.task('framework-prepare');
+/**
+ * Copy all bootstrap and\or other framework or grid files to dist
+ */
+gulp.task('framework-prepare', function () {
+    // copy bootstrap styles file
+    gulp.src('./node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(gulp.dest('./dist/css'));
+    // copy fonts
+    gulp.src('./node_modules/bootstrap/fonts/**/*')
+        .pipe(gulp.dest('./dist/fonts'));
+
+    // copy javascript file
+    gulp.src('./node_modules/bootstrap/dist/js/bootstrap.min.js')
+        .pipe(gulp.dest('./dist/js'));
+
+    // copy jquery
+    gulp.src('./node_modules/jquery/dist/jquery.min.js')
+        .pipe(gulp.dest('./dist/js'));
+
+});
