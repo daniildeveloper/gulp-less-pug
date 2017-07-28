@@ -10,22 +10,26 @@ var gulp = require('gulp'),
 /**
  * run gulp watch dev server
  */
-gulp.task('default', ['framework', 'pug'], function () {
+gulp.task('default', ['framework-prepare', 'pug'], function () {
     sync.init({
         server: {
             baseDir: './dist'
         }
     });
+    gulp.watch('./src/less/**/*less', ['less']);
+    gulp.watch('./src/pug/**/*.pug', ['pug']);
 })
 
 /**
  * pug compilation task
  */
 gulp.task('pug', function () {
-    gulp.src('./pug/')
+    gulp.src('./src/pug/**/*.pug')
         .pipe(pug())
         .pipe(gulp.dest('./dist/'))
-        .pipe(reload())
+        .pipe(reload({
+            stream: true
+        }))
 });
 
 gulp.task('less', function () {
