@@ -71,6 +71,12 @@ gulp.task('framework-prepare', function () {
     gulp.src('./node_modules/jquery/dist/jquery.min.js')
         .pipe(gulp.dest('./dist/js'));
 
+    // font awesome prepare
+    gulp.src('./node_modules/font-awesome/css/font-awesome.min.css')
+        .pipe(gulp.dest('./dist/css'));
+    gulp.src(('node_modules/font-awesome/fonts/**/*'))
+        .pipe(gulp.dest('./dist/fonts'));
+
 });
 
 
