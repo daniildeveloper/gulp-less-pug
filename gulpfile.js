@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     mincss = require('gulp-minify-css'),
     watch = require('gulp-watch'),
     pug = require('gulp-pug'),
+    notify = require('gulp-notify'),
     reload = sync.reload;
 
 /**
@@ -25,7 +26,12 @@ gulp.task('default', ['framework-prepare', 'pug'], function () {
  */
 gulp.task('pug', function () {
     gulp.src('./src/pug/**/*.pug')
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true
+        }))
+        .on('error', notify.onError(function (err) {
+            return "Pug: " + err;
+        }))
         .pipe(gulp.dest('./dist/'))
         .pipe(reload({
             stream: true
@@ -56,3 +62,9 @@ gulp.task('framework-prepare', function () {
         .pipe(gulp.dest('./dist/js'));
 
 });
+
+var pugLinterReporter = function (err) {
+    if (err.length) {
+        console.log(err);
+    }
+}
