@@ -38,8 +38,17 @@ gulp.task('pug', function () {
         }))
 });
 
+/**
+ * less compilation task
+ */
 gulp.task('less', function () {
-
+    gulp.src('./src/less/main.less')
+        .pipe(less())
+        .on('error', notify.onError(function (err) {
+            return 'Less: ' + err;
+        }))
+        .pipe(mincss())
+        .pipe(gulp.dest('./dist/css'));
 });
 
 /**
@@ -62,9 +71,3 @@ gulp.task('framework-prepare', function () {
         .pipe(gulp.dest('./dist/js'));
 
 });
-
-var pugLinterReporter = function (err) {
-    if (err.length) {
-        console.log(err);
-    }
-}
