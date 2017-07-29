@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 /**
  * run gulp watch dev server
  */
-gulp.task('default', ['framework-prepare', 'pug'], function () {
+gulp.task('default', ['framework-prepare', 'pug', 'img', 'fonts'], function () {
     sync.init({
         server: {
             baseDir: './dist'
@@ -19,7 +19,7 @@ gulp.task('default', ['framework-prepare', 'pug'], function () {
     });
     gulp.watch('./src/less/**/*less', ['less']);
     gulp.watch('./src/pug/**/*.pug', ['pug']);
-    gulp.watch('./src/img/**/*', ['img']);
+    gulp.watch('./src/img/**/*.{svg, jpg, png, gif, jpeg}', ['img']);
 })
 
 /**
@@ -81,8 +81,15 @@ gulp.task('js', function () {
     // todo: listen js
 });
 
-
+/**
+ * images
+ */
 gulp.task('img', function () {
     gulp.src('./img/**/*')
         .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('fonts', function () {
+    gulp.src('./src/fonts/**/*')
+        .pipe(gulp.dest('./dist/fonts'));
 })
