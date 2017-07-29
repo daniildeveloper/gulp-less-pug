@@ -19,6 +19,7 @@ gulp.task('default', ['framework-prepare', 'pug'], function () {
     });
     gulp.watch('./src/less/**/*less', ['less']);
     gulp.watch('./src/pug/**/*.pug', ['pug']);
+    gulp.watch('./src/img/**/*', ['img']);
 })
 
 /**
@@ -71,3 +72,17 @@ gulp.task('framework-prepare', function () {
         .pipe(gulp.dest('./dist/js'));
 
 });
+
+
+/**
+ * compile js or other to readeable in all browsers js
+ */
+gulp.task('js', function () {
+    // todo: listen js
+});
+
+
+gulp.task('img', function () {
+    gulp.src('./img/**/*')
+        .pipe(gulp.dest('./dist/img'));
+})
