@@ -91,7 +91,7 @@ gulp.task('js', function () {
  * images
  */
 gulp.task('img', function () {
-    gulp.src('./img/**/*')
+    gulp.src('./src/img/**/*')
         .pipe(gulp.dest('./dist/img'));
 });
 
