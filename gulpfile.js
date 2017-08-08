@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     pug = require('gulp-pug'),
     notify = require('gulp-notify'),
+    babel = require('gulp-babel'),
     reload = sync.reload;
 
 /**
@@ -49,7 +50,10 @@ gulp.task('less', function () {
             return 'Less: ' + err;
         }))
         .pipe(mincss())
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./dist/css'))
+        .pipe(reload({
+            stream: true
+        }))
 });
 
 /**
@@ -85,6 +89,15 @@ gulp.task('framework-prepare', function () {
  */
 gulp.task('js', function () {
     // todo: listen js
+    gulp.src('./src/js/app.js')
+        .pipe(babel())
+        .on('error', notify.onError(function (err) {
+            return "Js: " + err;
+        }))
+        .pipe(gulp.dest('./dist/js'))
+        .pipe(reload({
+            stream: true
+        }))
 });
 
 /**
@@ -98,4 +111,4 @@ gulp.task('img', function () {
 gulp.task('fonts', function () {
     gulp.src('./src/fonts/**/*')
         .pipe(gulp.dest('./dist/fonts'));
-})
+});
